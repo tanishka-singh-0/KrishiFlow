@@ -543,13 +543,16 @@ export default function Home() {
           
           {/* Main Top Features */}
           <div className="w-full space-y-10">
-            <div className={`p-8 md:p-10 rounded-[2rem] border transition-all duration-500 ${c.card}`}>
-              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-bold text-xs uppercase border mb-6 ${c.accentAmber}`}>
-                <span className="relative flex h-2 w-2">
-                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${c.pulseDotBase}`}></span>
-                  <span className={`relative inline-flex rounded-full h-2 w-2 ${c.pulseDotCore}`}></span>
-                </span>
-                {t[l].assistant_tag}
+            <div className={`p-8 md:p-10 rounded-[2rem] border transition-all duration-500 group/assistant hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
+              <div className="flex justify-between items-start mb-6">
+                <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/assistant:scale-110 ${c.iconBg}`}>🤖</div>
+                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-bold text-[10px] uppercase border shadow-sm ${c.accentAmber}`}>
+                  <span className="relative flex h-2 w-2">
+                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${c.pulseDotBase}`}></span>
+                    <span className={`relative inline-flex rounded-full h-2 w-2 ${c.pulseDotCore}`}></span>
+                  </span>
+                  {t[l].assistant_tag}
+                </div>
               </div>
               <h2 className={`text-4xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>
                 {t[l].assistant_h2}
@@ -603,8 +606,14 @@ export default function Home() {
             </div>
 
             {/* Live Delivery Leaflet Map */}
-            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
-              <h4 className={`text-4xl font-extrabold tracking-tight mb-5 ${c.textPrimary}`}>{t[l].tracker_title}</h4>
+            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
+              <div className="flex justify-between items-start mb-6 relative z-10 pointer-events-none">
+                <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/map:scale-110 bg-white/80 dark:bg-black/80 backdrop-blur-md ${c.iconBg}`}>🗺️</div>
+                <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase border shadow-sm transition-colors bg-white/80 dark:bg-black/80 backdrop-blur-md ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'}`}>
+                  LIVE TRACKING
+                </div>
+              </div>
+              <h4 className={`text-4xl font-extrabold tracking-tight mb-5 relative z-10 pointer-events-none drop-shadow-md ${c.textPrimary}`}>{t[l].tracker_title}</h4>
               
               <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
                 {/* Leaflet Map Integration */}
