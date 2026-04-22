@@ -9,8 +9,11 @@ export async function POST(req: Request) {
     const apiKey = process.env.GEMINI_API_KEY || "AIzaSyC3iR2yLiAGdXXuQlGQEQk-dnd33t_oOt4";
     const genAI = new GoogleGenerativeAI(apiKey);
 
-    // Latest Model
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    // Latest Model with Supply Chain System Instruction
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.5-flash",
+      systemInstruction: "You are KrishiFlow AI, an expert Supply Chain & Logistics Manager. You ONLY answer questions related to fertilizer logistics, warehouse inventory, truck routing, tracking ETAs, predictive demand, and supply chain optimization. Keep answers short, professional, and directly related to the user's prompt. Do NOT answer general farming questions."
+    });
 
     // Generate Content
     const result = await model.generateContent(prompt);
@@ -25,7 +28,7 @@ export async function POST(req: Request) {
 
     // Agar internet block hai toh ye fallback message dikhayega
     return NextResponse.json({
-      text: "Bhai, server thoda busy hai. Narmadapuram mandi mein Soyabean aur Gehu ka rate badhiya chal raha hai! (Offline Mode Active)"
+      text: "System Offline: Unable to reach AI server. Last known status: Truck MP04 en route to Warehouse B, ETA 45 mins. (Offline Mode Active)"
     });
   }
 }
