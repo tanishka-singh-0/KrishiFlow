@@ -217,7 +217,35 @@ export default function Home() {
       btn_portal: "Check Portal →",
       footer1: "AI Assistant",
       footer2: "Zero Wait Time",
-      footer3: "KrishiFlow"
+      footer3: "KrishiFlow",
+      chain_tag: "Anti-Black Market",
+      chain_title: "Blockchain Traceability",
+      chain_desc: "Verify the authenticity and transit history of your fertilizer batch to prevent adulteration.",
+      chain_batch: "Batch ID",
+      chain_step1: "Factory Dispatch",
+      chain_step1_sub: "Bhopal Plant • 08:30 AM",
+      chain_step2: "In Transit",
+      chain_step2_sub: "Truck #MP04-TX-9921 • Verified GPS",
+      chain_step3: "Pending Arrival",
+      chain_step3_sub: "Warehouse B",
+      chain_btn: "View Crypto Ledger",
+      engine_tag: "Real-Time Diagnostics",
+      engine_title: "Logistics AI Engine",
+      engine_desc: "Monitoring routing efficiency, fleet connectivity, and dynamic anomaly detection.",
+      feat1_title: "Live Dashboard",
+      feat1_nodes: "3/3 Nodes Online",
+      feat1_desc: "Centralized view of every fertilizer bag moving in the system.",
+      feat1_stat1: "Total Active Trucks",
+      feat1_stat2: "Volume Tracked",
+      feat2_title: "Route Optimization",
+      feat2_tag: "GPS SYNCED",
+      feat2_desc: "Using GPS algorithms to find the shortest, fuel-efficient paths for delivery trucks.",
+      feat2_stat: "Path Efficiency",
+      feat3_title: "Dynamic Rerouting",
+      feat3_desc: "If a logistics issue occurs, the system reroutes supply instantly to minimize delay.",
+      feat3_stat: "Current Status",
+      feat3_msg1: "No anomalies detected in transit.",
+      feat3_msg2: "Rerouting Truck MP-04 to Warehouse B!"
     },
     hindi: {
       nav_title: "स्मार्ट फर्टिलाइजर लॉजिस्टिक्स",
@@ -249,7 +277,35 @@ export default function Home() {
       btn_portal: "पोर्टल देखें →",
       footer1: "एआई असिस्टेंट",
       footer2: "जीरो वेट टाइम",
-      footer3: "कृषि-फ्लो"
+      footer3: "कृषि-फ्लो",
+      chain_tag: "कालाबाजारी रोकथाम",
+      chain_title: "ब्लॉकचेन ट्रैसबिलिटी",
+      chain_desc: "मिलावट रोकने के लिए अपने उर्वरक बैच की प्रामाणिकता और पारगमन इतिहास की पुष्टि करें।",
+      chain_batch: "बैच ID",
+      chain_step1: "फैक्ट्री से रवाना",
+      chain_step1_sub: "भोपाल प्लांट • 08:30 AM",
+      chain_step2: "रास्ते में",
+      chain_step2_sub: "ट्रक #MP04-TX-9921 • सत्यापित GPS",
+      chain_step3: "पहुंचने वाला है",
+      chain_step3_sub: "गोदाम B",
+      chain_btn: "क्रिप्टो लेज़र देखें",
+      engine_tag: "रीयल-टाइम डायग्नोस्टिक्स",
+      engine_title: "लॉजिस्टिक्स AI इंजन",
+      engine_desc: "रूटिंग दक्षता, ट्रकों की कनेक्टिविटी और डायनामिक विसंगति का पता लगाना।",
+      feat1_title: "लाइव डैशबोर्ड",
+      feat1_nodes: "3/3 नोड्स ऑनलाइन",
+      feat1_desc: "सिस्टम में चलने वाले प्रत्येक उर्वरक बैग का लाइव दृश्य।",
+      feat1_stat1: "कुल सक्रिय ट्रक",
+      feat1_stat2: "ट्रैक किया गया वॉल्यूम",
+      feat2_title: "रूट ऑप्टिमाइजेशन",
+      feat2_tag: "GPS सिंक",
+      feat2_desc: "डिलीवरी ट्रकों के लिए सबसे छोटे और ईंधन बचाने वाले रास्ते खोजने के लिए GPS का उपयोग।",
+      feat2_stat: "पथ दक्षता",
+      feat3_title: "डायनामिक रीरूटिंग",
+      feat3_desc: "यदि कोई लॉजिस्टिक्स समस्या आती है, तो देरी को कम करने के लिए सिस्टम तुरंत रास्ता बदल देता है।",
+      feat3_stat: "वर्तमान स्थिति",
+      feat3_msg1: "रास्ते में सब सामान्य है।",
+      feat3_msg2: "ट्रक MP-04 को गोदाम B की ओर मोड़ा जा रहा है!"
     },
     hinglish: {
       nav_title: "SMART FERTILIZER LOGISTICS",
@@ -281,7 +337,35 @@ export default function Home() {
       btn_portal: "Portal Check Karein →",
       footer1: "AI Assistant",
       footer2: "Zero Wait Time",
-      footer3: "KrishiFlow"
+      footer3: "KrishiFlow",
+      chain_tag: "Anti-Black Market",
+      chain_title: "Blockchain Traceability",
+      chain_desc: "Milawat rokne ke liye apne fertilizer batch ki sachai aur transit history verify karein.",
+      chain_batch: "Batch ID",
+      chain_step1: "Factory Se Nikla",
+      chain_step1_sub: "Bhopal Plant • 08:30 AM",
+      chain_step2: "Raaste Mein",
+      chain_step2_sub: "Truck #MP04-TX-9921 • Verified GPS",
+      chain_step3: "Pahunchne Wala Hai",
+      chain_step3_sub: "Warehouse B",
+      chain_btn: "Crypto Ledger Dekhein",
+      engine_tag: "Real-Time Diagnostics",
+      engine_title: "Logistics AI Engine",
+      engine_desc: "Routing efficiency, truck connectivity, aur problems ko live monitor karna.",
+      feat1_title: "Live Dashboard",
+      feat1_nodes: "3/3 Nodes Online",
+      feat1_desc: "System mein chalne wale har fertilizer bag ki live detail.",
+      feat1_stat1: "Total Active Trucks",
+      feat1_stat2: "Volume Tracked",
+      feat2_title: "Route Optimization",
+      feat2_tag: "GPS SYNCED",
+      feat2_desc: "Delivery trucks ke liye sabse chote aur fuel bachane wale raste nikalna.",
+      feat2_stat: "Path Efficiency",
+      feat3_title: "Dynamic Rerouting",
+      feat3_desc: "Agar koi logistics problem aati hai, toh system delay kam karne ke liye turant route badal deta hai.",
+      feat3_stat: "Current Status",
+      feat3_msg1: "Raaste mein sab normal hai.",
+      feat3_msg2: "Truck MP-04 ko Warehouse B bhej rahe hain!"
     }
   };
 
@@ -561,33 +645,33 @@ export default function Home() {
               <div className="flex justify-between items-start mb-6">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/chain:scale-110 ${c.iconBg}`}>🛡️</div>
                 <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase shadow-sm ${c.accentEmerald}`}>
-                  Anti-Black Market
+                  {t[l].chain_tag}
                 </div>
               </div>
-              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>Blockchain Traceability</h4>
-              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>Verify the authenticity and transit history of your fertilizer batch to prevent adulteration.</p>
+              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>{t[l].chain_title}</h4>
+              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>{t[l].chain_desc}</p>
               
               <div className={`p-5 rounded-2xl border bg-slate-50/50 dark:bg-black/20 ${c.ecoBorder}`}>
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Batch ID</span>
+                  <span className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>{t[l].chain_batch}</span>
                   <span className={`text-xs font-mono font-bold ${c.textPrimary}`}>#UREA-MP-9842</span>
                 </div>
                 
                 <div className="relative pl-4 space-y-4 before:absolute before:inset-y-2 before:left-[7px] before:w-0.5 before:bg-emerald-500/20">
                   <div className="relative">
                     <div className="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
-                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>Factory Dispatch</p>
-                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Bhopal Plant • 08:30 AM</p>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>{t[l].chain_step1}</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>{t[l].chain_step1_sub}</p>
                   </div>
                   <div className="relative">
                     <div className="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
-                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>In Transit</p>
-                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Truck #MP04-TX-9921 • Verified GPS</p>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>{t[l].chain_step2}</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>{t[l].chain_step2_sub}</p>
                   </div>
                   <div className="relative">
                     <div className={`absolute -left-[19px] top-1 w-3 h-3 rounded-full border-2 border-emerald-500 ${c.iconBg}`}></div>
-                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Pending Arrival</p>
-                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Warehouse B</p>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>{t[l].chain_step3}</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>{t[l].chain_step3_sub}</p>
                   </div>
                 </div>
 
@@ -595,7 +679,7 @@ export default function Home() {
                   className={`w-full mt-6 px-6 py-3 rounded-xl font-bold uppercase text-[10px] tracking-wider transition-all duration-300 active:scale-95 border border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 ${c.accentEmerald}`}
                   onClick={() => alert('View full blockchain ledger hash: 0x8f2a...9c4e ✅')}
                 >
-                  View Crypto Ledger
+                  {t[l].chain_btn}
                 </button>
               </div>
             </div>
@@ -645,11 +729,11 @@ export default function Home() {
               <div className="flex justify-between items-start mb-6">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/engine:scale-110 ${c.iconBg}`}>⚙️</div>
                 <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase shadow-sm ${c.accentEmerald}`}>
-                  Real-Time Diagnostics
+                  {t[l].engine_tag}
                 </div>
               </div>
-              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>Logistics AI Engine</h4>
-              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>Monitoring routing efficiency, fleet connectivity, and dynamic anomaly detection.</p>
+              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>{t[l].engine_title}</h4>
+              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>{t[l].engine_desc}</p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Feature 1: Live Dashboard */}
@@ -661,18 +745,18 @@ export default function Home() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                       </span>
-                      Live Dashboard
+                      {t[l].feat1_title}
                     </h5>
-                    <span className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>3/3 Nodes Online</span>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>{t[l].feat1_nodes}</span>
                   </div>
-                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>Centralized view of every fertilizer bag moving in the system.</p>
+                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>{t[l].feat1_desc}</p>
                   <div className="flex justify-between items-end border-t pt-3 border-emerald-500/10">
                     <div>
-                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Total Active Trucks</p>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>{t[l].feat1_stat1}</p>
                       <p className={`font-bold font-mono text-lg ${c.textPrimary}`}>03</p>
                     </div>
                     <div className="text-right">
-                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Volume Tracked</p>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>{t[l].feat1_stat2}</p>
                       <p className={`font-bold font-mono text-lg ${c.textPrimary}`}>150 Tons</p>
                     </div>
                   </div>
@@ -682,14 +766,14 @@ export default function Home() {
                 <div className={`p-5 rounded-2xl border ${c.ecoBorder} bg-slate-50/50 dark:bg-black/20 relative overflow-hidden group/feat2 transition-all`}>
                   <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-6xl group-hover/feat2:scale-110 transition-transform">📍</div>
                   <div className="flex justify-between items-center mb-3">
-                    <h5 className={`font-bold ${c.textPrimary}`}>Route Optimization</h5>
-                    <span className={`text-[10px] font-bold uppercase tracking-widest bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-2 py-0.5 rounded`}>GPS SYNCED</span>
+                    <h5 className={`font-bold ${c.textPrimary}`}>{t[l].feat2_title}</h5>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-2 py-0.5 rounded`}>{t[l].feat2_tag}</span>
                   </div>
-                  <p className={`text-xs font-semibold mb-4 ${c.textSecondary}`}>Using GPS algorithms to find the shortest, fuel-efficient paths for delivery trucks.</p>
+                  <p className={`text-xs font-semibold mb-4 ${c.textSecondary}`}>{t[l].feat2_desc}</p>
                   
                   <div className="space-y-1">
                     <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                      <span className={c.textSecondary}>Path Efficiency</span>
+                      <span className={c.textSecondary}>{t[l].feat2_stat}</span>
                       <span className={c.accentEmerald}>98%</span>
                     </div>
                     <div className={`w-full rounded-full h-1.5 overflow-hidden ${c.progressTrack}`}>
@@ -701,21 +785,21 @@ export default function Home() {
                 {/* Feature 3: Dynamic Rerouting */}
                 <div className={`p-5 rounded-2xl border transition-all ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'border-red-500/50 bg-red-50/50 dark:bg-red-950/20 shadow-[0_0_15px_rgba(239,68,68,0.1)]' : `${c.ecoBorder} bg-slate-50/50 dark:bg-black/20`}`}>
                   <div className="flex justify-between items-center mb-3">
-                    <h5 className={`font-bold ${c.textPrimary}`}>Dynamic Rerouting</h5>
+                    <h5 className={`font-bold ${c.textPrimary}`}>{t[l].feat3_title}</h5>
                     <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border transition-colors duration-500 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800 animate-pulse' : 'bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800'}`}>
                       {trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'ACTIVE' : 'STANDBY'}
                     </span>
                   </div>
-                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>If a logistics issue occurs, the system reroutes supply instantly to minimize delay.</p>
+                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>{t[l].feat3_desc}</p>
                   
                   <div className={`p-3 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-100/50 border-red-200 dark:bg-red-900/20 dark:border-red-800' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'}`}>
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-500 text-white animate-bounce' : 'bg-slate-200 dark:bg-slate-800'}`}>
                       {trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? '🚨' : '✅'}
                     </div>
                     <div>
-                      <p className={`text-[10px] font-bold uppercase tracking-widest ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'text-red-600 dark:text-red-400' : c.textSecondary}`}>Current Status</p>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'text-red-600 dark:text-red-400' : c.textSecondary}`}>{t[l].feat3_stat}</p>
                       <p className={`text-xs font-semibold ${c.textPrimary}`}>
-                        {trackingStatus === 'normal' ? 'No anomalies detected in transit.' : 'Rerouting Truck MP-04 to Warehouse B!'}
+                        {trackingStatus === 'normal' ? t[l].feat3_msg1 : t[l].feat3_msg2}
                       </p>
                     </div>
                   </div>
