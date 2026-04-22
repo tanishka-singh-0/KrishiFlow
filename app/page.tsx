@@ -466,10 +466,10 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <div className="flex flex-col gap-10 w-full max-w-5xl mx-auto mb-16">
           
-          {/* Chat Assistant Section (Left Column) */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Main Top Features */}
+          <div className="w-full space-y-10">
             <div className={`p-8 md:p-10 rounded-[2rem] border transition-all duration-500 ${c.card}`}>
               <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-bold text-xs uppercase border mb-6 ${c.accentAmber}`}>
                 <span className="relative flex h-2 w-2">
@@ -617,8 +617,8 @@ export default function Home() {
             </div>
 
 
-          {/* Sidebar Modules (Right Column) */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Main Bottom Features */}
+          <div className="w-full space-y-10">
             
             {/* AI Insights Panel */}
             {(trackingStatus === 'alerting' || trackingStatus === 'rerouted') && (
@@ -667,7 +667,7 @@ export default function Home() {
               <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>Logistics AI Engine</h4>
               <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>Monitoring routing efficiency, fleet connectivity, and dynamic anomaly detection.</p>
               
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Feature 1: Live Dashboard */}
                 <div className={`p-5 rounded-2xl border ${c.ecoBorder} bg-slate-50/50 dark:bg-black/20 relative overflow-hidden group/feat1 transition-all`}>
                   <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-6xl group-hover/feat1:scale-110 transition-transform">📊</div>
