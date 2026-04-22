@@ -223,7 +223,7 @@ export default function Home() {
       btn_portal: "Check Portal →",
       footer1: "AI Assistant",
       footer2: "Zero Wait Time",
-      footer3: "Project KrishiFlow"
+      footer3: "KrishiFlow"
     },
     hindi: {
       nav_title: "स्मार्ट फर्टिलाइजर लॉजिस्टिक्स",
@@ -255,7 +255,7 @@ export default function Home() {
       btn_portal: "पोर्टल देखें →",
       footer1: "एआई असिस्टेंट",
       footer2: "जीरो वेट टाइम",
-      footer3: "प्रोजेक्ट कृषि-फ्लो"
+      footer3: "कृषि-फ्लो"
     },
     hinglish: {
       nav_title: "SMART FERTILIZER LOGISTICS",
@@ -287,7 +287,7 @@ export default function Home() {
       btn_portal: "Portal Check Karein →",
       footer1: "AI Assistant",
       footer2: "Zero Wait Time",
-      footer3: "Project KrishiFlow"
+      footer3: "KrishiFlow"
     }
   };
 
