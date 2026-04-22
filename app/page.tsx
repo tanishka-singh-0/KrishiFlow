@@ -539,7 +539,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="flex flex-col gap-10 w-full max-w-5xl mx-auto mb-16">
+        <div className="flex flex-col gap-10 w-full mb-16">
           
           {/* Main Top Features */}
           <div className="w-full space-y-10">
