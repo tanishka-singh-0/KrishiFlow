@@ -602,6 +602,27 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Live Delivery Leaflet Map */}
+            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
+              <h4 className={`text-4xl font-extrabold tracking-tight mb-5 ${c.textPrimary}`}>{t[l].tracker_title}</h4>
+              
+              <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
+                {/* Leaflet Map Integration */}
+                <div className="absolute inset-0 z-0">
+                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
+                </div>
+              </div>
+              
+              <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+                <span className={`transition-colors px-3 py-1.5 rounded-full ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
+                  {progress}% Completed
+                </span>
+                <span className={`${c.mapStatusPulse} animate-pulse`}>
+                  {trackingStatus === 'normal' ? 'IN TRANSIT TO WAREHOUSE A' : trackingStatus === 'alerting' ? 'DETECTING SHORTAGE...' : 'REROUTED TO WAREHOUSE B'}
+                </span>
+              </div>
+            </div>
+
             {/* LIVE CARBON FOOTPRINT TRACKER - HIDDEN */}
             {false && (
             <div className={`p-8 md:p-10 rounded-[2rem] border group/eco transition-all duration-500 ${c.ecoCard}`}>
@@ -708,26 +729,7 @@ export default function Home() {
               </div>
             )}
 
-            {/* Live Delivery Leaflet Map */}
-            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
-              <h4 className={`font-bold mb-5 uppercase tracking-widest text-center text-xs transition-colors ${trackingStatus === 'normal' ? c.textSecondary : c.accentRed}`}>{t[l].tracker_title}</h4>
-              
-              <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
-                {/* Leaflet Map Integration */}
-                <div className="absolute inset-0 z-0">
-                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
-                </div>
-              </div>
-              
-              <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-                <span className={`transition-colors px-3 py-1.5 rounded-full ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
-                  {progress}% Completed
-                </span>
-                <span className={`${c.mapStatusPulse} animate-pulse`}>
-                  {trackingStatus === 'normal' ? 'IN TRANSIT TO WAREHOUSE A' : trackingStatus === 'alerting' ? 'DETECTING SHORTAGE...' : 'REROUTED TO WAREHOUSE B'}
-                </span>
-              </div>
-            </div>
+
 
             {/* LOGISTICS AI ENGINE */}
             <div className={`p-8 md:p-10 rounded-[2rem] border group/engine transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
@@ -897,6 +899,27 @@ export default function Home() {
                     </div>
                   </div>
                 )}
+              </div>
+            </div>
+
+            {/* Live Delivery Leaflet Map */}
+            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
+              <h4 className={`text-4xl font-extrabold tracking-tight mb-5 ${c.textPrimary}`}>{t[l].tracker_title}</h4>
+              
+              <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
+                {/* Leaflet Map Integration */}
+                <div className="absolute inset-0 z-0">
+                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
+                </div>
+              </div>
+              
+              <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+                <span className={`transition-colors px-3 py-1.5 rounded-full ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
+                  {progress}% Completed
+                </span>
+                <span className={`${c.mapStatusPulse} animate-pulse`}>
+                  {trackingStatus === 'normal' ? 'IN TRANSIT TO WAREHOUSE A' : trackingStatus === 'alerting' ? 'DETECTING SHORTAGE...' : 'REROUTED TO WAREHOUSE B'}
+                </span>
               </div>
             </div>
 
