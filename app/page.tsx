@@ -697,6 +697,37 @@ export default function Home() {
                   </div>
                 </div>
 
+                {/* Feature 4: Predictive Demand */}
+                <div className={`p-5 rounded-2xl border ${c.ecoBorder} bg-slate-50/50 dark:bg-black/20 relative overflow-hidden group/feat4 transition-all`}>
+                  <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-6xl group-hover/feat4:scale-110 transition-transform">📊</div>
+                  <div className="flex justify-between items-center mb-3">
+                    <h5 className={`font-bold ${c.textPrimary}`}>{t[l].chart_title}</h5>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400 px-2 py-0.5 rounded`}>AI FORECAST</span>
+                  </div>
+                  <p className={`text-xs font-semibold mb-4 ${c.textSecondary}`}>{t[l].chart_desc}</p>
+                  
+                  {/* Miniature CSS Bar Chart */}
+                  <div className={`flex items-end justify-between h-20 gap-2 mt-2 border-b pb-2 ${c.chartBorder}`}>
+                    <div className="flex flex-col items-center flex-1 group/bar">
+                      <div className={`w-full rounded-t-md h-[40%] ${c.chartBar}`}></div>
+                      <span className={`text-[8px] font-bold mt-1 ${c.textSecondary}`}>W1</span>
+                    </div>
+                    <div className="flex flex-col items-center flex-1 group/bar">
+                      <div className={`w-full rounded-t-md h-[60%] ${c.chartBar}`}></div>
+                      <span className={`text-[8px] font-bold mt-1 ${c.textSecondary}`}>W2</span>
+                    </div>
+                    <div className="flex flex-col items-center flex-1 group/bar relative">
+                      <div className="absolute -top-5 bg-red-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded shadow-sm shadow-red-500/20 animate-pulse">PEAK</div>
+                      <div className="w-full bg-red-400 dark:bg-red-500/80 rounded-t-md h-[90%] shadow-sm"></div>
+                      <span className={`text-[8px] font-bold mt-1 ${c.accentRed}`}>W3</span>
+                    </div>
+                    <div className="flex flex-col items-center flex-1 group/bar">
+                      <div className={`w-full rounded-t-md h-[30%] ${c.chartBar}`}></div>
+                      <span className={`text-[8px] font-bold mt-1 ${c.textSecondary}`}>W4</span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -826,7 +857,8 @@ export default function Home() {
               </>
             )}
 
-            {/* Predictive Analytics Chart Card */}
+            {/* Predictive Analytics Chart Card - MOVED TO LOGISTICS ENGINE */}
+            {false && (
             <div className={`p-8 rounded-[2rem] border group/chart transition-all duration-500 ${c.chartCard}`}>
               <div className="flex justify-between items-start mb-6">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/chart:scale-110 ${c.iconBg}`}>📊</div>
@@ -858,6 +890,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* Government Portal Link - HIDDEN */}
             {false && (
