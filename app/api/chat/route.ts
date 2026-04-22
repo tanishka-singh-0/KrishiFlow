@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     // API Key setup
-    const genAI = new GoogleGenerativeAI("AIzaSyCdIufeLm7sSBoHTGOyWIrFZYYXJriU1oo");
+    const genAI = new GoogleGenerativeAI("AIzaSyC3iR2yLiAGdXXuQlGQEQk-dnd33t_oOt4");
 
     // Latest Model
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });

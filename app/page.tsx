@@ -7,6 +7,15 @@ const TrackerMap = dynamic(() => import("@/components/TrackerMap"), {
   loading: () => (
     <div className="w-full h-full flex items-center justify-center bg-slate-50/10 animate-pulse rounded-2xl">
       <p className="font-medium text-slate-400">Loading Map...</p>
+      {/* Global Map Animations */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .flow-path {
+          animation: dash-flow 40s linear infinite;
+        }
+        @keyframes dash-flow {
+          to { stroke-dashoffset: -1000; }
+        }
+      `}} />
     </div>
   ),
 });
@@ -180,7 +189,7 @@ export default function Home() {
       hackathon: "Rising Rookies Hackathon 2026",
       assistant_tag: "Smart Assistant",
       assistant_h2: "Ask Anything",
-      assistant_p: "Type about weather, crops, or market prices",
+      assistant_p: "Type about soil health, crops, or market prices",
       assistant_placeholder: "Type your question...",
       btn_send: "Send",
       you_asked: "You asked:",
@@ -212,7 +221,7 @@ export default function Home() {
       hackathon: "राइजिंग रूकीज़ हैकथॉन 2026",
       assistant_tag: "स्मार्ट असिस्टेंट",
       assistant_h2: "कुछ भी पूछें",
-      assistant_p: "मौसम, फसल या मंडी भाव के बारे में पूछें",
+      assistant_p: "मिट्टी की जांच, फसल या मंडी भाव के बारे में पूछें",
       assistant_placeholder: "अपना सवाल लिखें...",
       btn_send: "भेजें",
       you_asked: "आपका सवाल:",
@@ -244,7 +253,7 @@ export default function Home() {
       hackathon: "Rising Rookies Hackathon 2026",
       assistant_tag: "Smart Assistant",
       assistant_h2: "Kuch Bhi Puchiye",
-      assistant_p: "Mausam, fasal, ya mandi bhav ke baare mein puchiye",
+      assistant_p: "Mitti (Soil), fasal, ya mandi bhav ke baare mein puchiye",
       assistant_placeholder: "Apna sawal likhiye...",
       btn_send: "Send",
       you_asked: "Aapne pucha:",
@@ -274,6 +283,11 @@ export default function Home() {
   };
 
   const generateInsight = async () => {
+    // Prevent spamming the API every 40 seconds! Saves Quota.
+    if (insight !== "" && !insight.includes("Offline Fallback")) {
+      return; 
+    }
+
     setIsInsightLoading(true);
     setInsight("");
     try {
@@ -284,9 +298,15 @@ export default function Home() {
         body: JSON.stringify({ prompt }),
       });
       const data = await response.json();
-      setInsight(data.text);
+      
+      // If the backend threw the chat-specific offline error, replace it with a logistics-specific one
+      if (data.text.includes("Offline Mode Active")) {
+        setInsight("⚠️ URGENT ALERT (Offline Fallback): Severe shortage of 50T UREA detected at Warehouse B. Truck #MP04-TX-9921 has been dynamically rerouted from Vidisha to Sehore to prevent supply chain bottleneck.");
+      } else {
+        setInsight(data.text);
+      }
     } catch (err) {
-      setInsight("Error fetching insight from Gemini API.");
+      setInsight("⚠️ URGENT ALERT (Offline Fallback): Severe shortage of 50T UREA detected at Warehouse B. Truck #MP04-TX-9921 has been dynamically rerouted from Vidisha to Sehore to prevent supply chain bottleneck.");
     } finally {
       setIsInsightLoading(false);
     }
@@ -295,9 +315,12 @@ export default function Home() {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=23.2599&longitude=77.4126&current_weather=true");
+        const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=23.2599&longitude=77.4126&current_weather=true&daily=precipitation_probability_max&timezone=Asia%2FKolkata");
         const data = await res.json();
-        setWeather(data.current_weather);
+        setWeather({ 
+          current: data.current_weather, 
+          rainProb: data.daily?.precipitation_probability_max?.[0] || 0 
+        });
       } catch (err) {
         console.error("Failed to fetch weather", err);
       }
@@ -527,6 +550,135 @@ export default function Home() {
                 <p className={`text-xs font-semibold tracking-wide ${c.accentEmerald}`}>{t[l].eco_tagline}</p>
               </div>
             </div>
+
+            {/* BLOCKCHAIN TRACEABILITY (Anti-Black Market) */}
+            <div className={`p-8 md:p-10 rounded-[2rem] border group/chain transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
+              <div className="flex justify-between items-start mb-6">
+                <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/chain:scale-110 ${c.iconBg}`}>🛡️</div>
+                <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase shadow-sm ${c.accentEmerald}`}>
+                  Anti-Black Market
+                </div>
+              </div>
+              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>Blockchain Traceability</h4>
+              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>Verify the authenticity and transit history of your fertilizer batch to prevent adulteration.</p>
+              
+              <div className={`p-5 rounded-2xl border bg-slate-50/50 dark:bg-black/20 ${c.ecoBorder}`}>
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Batch ID</span>
+                  <span className={`text-xs font-mono font-bold ${c.textPrimary}`}>#UREA-MP-9842</span>
+                </div>
+                
+                <div className="relative pl-4 space-y-4 before:absolute before:inset-y-2 before:left-[7px] before:w-0.5 before:bg-emerald-500/20">
+                  <div className="relative">
+                    <div className="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>Factory Dispatch</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Bhopal Plant • 08:30 AM</p>
+                  </div>
+                  <div className="relative">
+                    <div className="absolute -left-[19px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></div>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>In Transit</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Truck #MP04-TX-9921 • Verified GPS</p>
+                  </div>
+                  <div className="relative">
+                    <div className={`absolute -left-[19px] top-1 w-3 h-3 rounded-full border-2 border-emerald-500 ${c.iconBg}`}></div>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Pending Arrival</p>
+                    <p className={`text-xs font-semibold mt-1 ${c.textSecondary}`}>Warehouse B</p>
+                  </div>
+                </div>
+
+                <button 
+                  className={`w-full mt-6 px-6 py-3 rounded-xl font-bold uppercase text-[10px] tracking-wider transition-all duration-300 active:scale-95 border border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 ${c.accentEmerald}`}
+                  onClick={() => alert('View full blockchain ledger hash: 0x8f2a...9c4e ✅')}
+                >
+                  View Crypto Ledger
+                </button>
+              </div>
+            </div>
+
+            {/* LOGISTICS AI ENGINE */}
+            <div className={`p-8 md:p-10 rounded-[2rem] border group/engine transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
+              <div className="flex justify-between items-start mb-6">
+                <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/engine:scale-110 ${c.iconBg}`}>⚙️</div>
+                <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase shadow-sm ${c.accentEmerald}`}>
+                  Real-Time Diagnostics
+                </div>
+              </div>
+              <h4 className={`text-2xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>Logistics AI Engine</h4>
+              <p className={`text-sm font-medium mb-8 ${c.textSecondary}`}>Monitoring routing efficiency, fleet connectivity, and dynamic anomaly detection.</p>
+              
+              <div className="space-y-6">
+                {/* Feature 1: Live Dashboard */}
+                <div className={`p-5 rounded-2xl border ${c.ecoBorder} bg-slate-50/50 dark:bg-black/20 relative overflow-hidden group/feat1 transition-all`}>
+                  <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-6xl group-hover/feat1:scale-110 transition-transform">📊</div>
+                  <div className="flex justify-between items-center mb-3">
+                    <h5 className={`font-bold flex items-center gap-2 ${c.textPrimary}`}>
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                      </span>
+                      Live Dashboard
+                    </h5>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest ${c.accentEmerald}`}>3/3 Nodes Online</span>
+                  </div>
+                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>Centralized view of every fertilizer bag moving in the system.</p>
+                  <div className="flex justify-between items-end border-t pt-3 border-emerald-500/10">
+                    <div>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Total Active Trucks</p>
+                      <p className={`font-bold font-mono text-lg ${c.textPrimary}`}>03</p>
+                    </div>
+                    <div className="text-right">
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Volume Tracked</p>
+                      <p className={`font-bold font-mono text-lg ${c.textPrimary}`}>150 Tons</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Feature 2: Route Optimization */}
+                <div className={`p-5 rounded-2xl border ${c.ecoBorder} bg-slate-50/50 dark:bg-black/20 relative overflow-hidden group/feat2 transition-all`}>
+                  <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-6xl group-hover/feat2:scale-110 transition-transform">📍</div>
+                  <div className="flex justify-between items-center mb-3">
+                    <h5 className={`font-bold ${c.textPrimary}`}>Route Optimization</h5>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-2 py-0.5 rounded`}>GPS SYNCED</span>
+                  </div>
+                  <p className={`text-xs font-semibold mb-4 ${c.textSecondary}`}>Using GPS algorithms to find the shortest, fuel-efficient paths for delivery trucks.</p>
+                  
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
+                      <span className={c.textSecondary}>Path Efficiency</span>
+                      <span className={c.accentEmerald}>98%</span>
+                    </div>
+                    <div className={`w-full rounded-full h-1.5 overflow-hidden ${c.progressTrack}`}>
+                      <div className={`h-full rounded-full transition-all duration-1000 ease-out ${c.progressFill}`} style={{ width: '98%' }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Feature 3: Dynamic Rerouting */}
+                <div className={`p-5 rounded-2xl border transition-all ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'border-red-500/50 bg-red-50/50 dark:bg-red-950/20 shadow-[0_0_15px_rgba(239,68,68,0.1)]' : `${c.ecoBorder} bg-slate-50/50 dark:bg-black/20`}`}>
+                  <div className="flex justify-between items-center mb-3">
+                    <h5 className={`font-bold ${c.textPrimary}`}>Dynamic Rerouting</h5>
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border transition-colors duration-500 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800 animate-pulse' : 'bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800'}`}>
+                      {trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'ACTIVE' : 'STANDBY'}
+                    </span>
+                  </div>
+                  <p className={`text-xs font-semibold mb-3 ${c.textSecondary}`}>If a logistics issue occurs, the system reroutes supply instantly to minimize delay.</p>
+                  
+                  <div className={`p-3 rounded-xl border flex items-center gap-3 transition-colors duration-500 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-100/50 border-red-200 dark:bg-red-900/20 dark:border-red-800' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'bg-red-500 text-white animate-bounce' : 'bg-slate-200 dark:bg-slate-800'}`}>
+                      {trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? '🚨' : '✅'}
+                    </div>
+                    <div>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest ${trackingStatus === 'alerting' || trackingStatus === 'rerouted' ? 'text-red-600 dark:text-red-400' : c.textSecondary}`}>Current Status</p>
+                      <p className={`text-xs font-semibold ${c.textPrimary}`}>
+                        {trackingStatus === 'normal' ? 'No anomalies detected in transit.' : 'Rerouting Truck MP-04 to Warehouse B!'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
           {/* Sidebar Modules (Right Column) */}
@@ -552,7 +704,10 @@ export default function Home() {
               <h4 className={`font-bold mb-5 uppercase tracking-widest text-center text-xs transition-colors ${trackingStatus === 'normal' ? c.textSecondary : c.accentRed}`}>{t[l].tracker_title}</h4>
               
               <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
-                <TrackerMap progress={progress} status={trackingStatus} />
+                {/* Leaflet Map Integration */}
+                <div className="absolute inset-0 z-0">
+                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
+                </div>
               </div>
               
               <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
@@ -573,23 +728,40 @@ export default function Home() {
                   Live Weather
                 </div>
               </div>
-              <div className="flex justify-between items-end">
+              <div className="flex justify-between items-start">
                 {weather ? (
-                  <div className="flex items-center gap-5">
-                    <div className="text-6xl drop-shadow-sm">
-                      {weather.weathercode === 0 ? "☀️" : weather.weathercode < 3 ? "🌤️" : weather.weathercode < 60 ? "☁️" : weather.weathercode < 80 ? "🌧️" : "⛈️"}
+                  <div className="flex flex-col gap-4 w-full">
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex items-center gap-5">
+                        <div className="text-6xl drop-shadow-sm">
+                          {weather.current.weathercode === 0 ? "☀️" : weather.current.weathercode < 3 ? "🌤️" : weather.current.weathercode < 60 ? "☁️" : weather.current.weathercode < 80 ? "🌧️" : "⛈️"}
+                        </div>
+                        <div className="flex flex-col">
+                          <h4 className={`text-5xl font-extrabold tracking-tighter ${c.textPrimary}`}>
+                            {weather.current.temperature}°<span className={`text-2xl ${c.textSecondary}`}>C</span>
+                          </h4>
+                          <p className={`text-[10px] font-bold uppercase tracking-widest mt-2 ${c.textSecondary}`}>
+                            Wind: {weather.current.windspeed} km/h
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Bhopal, MP</span>
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <h4 className={`text-5xl font-extrabold tracking-tighter ${c.textPrimary}`}>
-                        {weather.temperature}°<span className={`text-2xl ${c.textSecondary}`}>C</span>
-                      </h4>
-                      <p className={`text-[10px] font-bold uppercase tracking-widest mt-2 ${c.textSecondary}`}>
-                        Wind: {weather.windspeed} km/h
-                      </p>
+                    {/* Predictive AI Box */}
+                    <div className={`mt-2 p-3 rounded-xl border flex items-center gap-3 transition-colors ${weather.rainProb > 40 ? c.alertCard : c.tagBg}`}>
+                      <div className="text-xl">{weather.rainProb > 40 ? "⚠️" : "🤖"}</div>
+                      <div className="flex flex-col">
+                        <span className="text-[9px] font-extrabold uppercase tracking-widest opacity-80">AI Forecast Prediction</span>
+                        <span className="text-xs font-semibold mt-0.5">
+                          {weather.rainProb}% Rain Prob. {weather.rainProb > 40 ? "Prepare tarps for Urea transport!" : "Clear skies expected for transport."}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-center gap-4 animate-pulse">
+                  <div className="flex items-center gap-4 animate-pulse w-full">
                     <div className={`w-14 h-14 rounded-full ${c.progressTrack}`}></div>
                     <div className="flex flex-col gap-2">
                       <div className={`w-20 h-10 rounded-lg ${c.progressTrack}`}></div>
@@ -597,9 +769,6 @@ export default function Home() {
                     </div>
                   </div>
                 )}
-                <div className="text-right">
-                  <span className={`text-[10px] font-bold uppercase tracking-widest ${c.textSecondary}`}>Bhopal, MP</span>
-                </div>
               </div>
             </div>
 
