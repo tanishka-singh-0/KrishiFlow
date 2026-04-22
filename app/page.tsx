@@ -570,7 +570,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* BLOCKCHAIN TRACEABILITY (Anti-Black Market) */}
+            {/* BLOCKCHAIN TRACEABILITY (Anti-Black Market) - HIDDEN TO KEEP PROTOTYPE SIMPLE */}
+            {false && (
             <div className={`p-8 md:p-10 rounded-[2rem] border group/chain transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
               <div className="flex justify-between items-start mb-6">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/chain:scale-110 ${c.iconBg}`}>🛡️</div>
@@ -613,6 +614,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
+            )}
 
             {/* LOGISTICS AI ENGINE */}
             <div className={`p-8 md:p-10 rounded-[2rem] border group/engine transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
@@ -739,6 +741,9 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Extra Cards - HIDDEN TO KEEP PROTOTYPE SIMPLE */}
+            {false && (
+              <>
             {/* Live Weather Widget */}
             <div className={`p-8 rounded-[2rem] border group/weather transition-all duration-500 hover:-translate-y-1 ${c.card}`}>
               <div className="flex justify-between items-start mb-6">
@@ -866,6 +871,8 @@ export default function Home() {
                 <span>{t[l].btn_portal}</span>
               </a>
             </div>
+              </>
+            )}
 
           </div>
         </div>
