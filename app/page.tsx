@@ -200,6 +200,7 @@ export default function Home() {
       ai_loading: "Analyzing data...",
       ai_error: "Connection issue! Please try again.",
       tracker_title: "Dynamic Supply Chain Optimization",
+      tracker_desc: "Monitor live truck locations and auto-reroute shipments based on road and weather conditions.",
       step1: "Godown Factory",
       step1_sub: "Urea Fertilizer (50kg)",
       pool_title: "Trolley Pooling",
@@ -260,6 +261,7 @@ export default function Home() {
       ai_loading: "डेटा का विश्लेषण कर रहा है...",
       ai_error: "कनेक्शन समस्या! कृपया पुनः प्रयास करें।",
       tracker_title: "डायनामिक सप्लाई चैन ऑप्टिमाइजेशन",
+      tracker_desc: "ट्रक की लाइव लोकेशन ट्रैक करें और सड़क या मौसम के अनुसार अपने आप रूट बदलें।",
       step1: "गोदाम फैक्ट्री",
       step1_sub: "यूरिया खाद (50kg)",
       pool_title: "ट्रॉली शेयरिंग",
@@ -320,6 +322,7 @@ export default function Home() {
       ai_loading: "Data analyze ho raha hai...",
       ai_error: "Connection issue! Phir se try karein.",
       tracker_title: "Dynamic Supply Chain Optimization",
+      tracker_desc: "Live truck location track karein aur road ya mausam ke hisaab se auto-reroute karein.",
       step1: "Godown Factory",
       step1_sub: "Urea Fertilizer (50kg)",
       pool_title: "Trolley Sharing",
@@ -613,7 +616,8 @@ export default function Home() {
                   LIVE TRACKING
                 </div>
               </div>
-              <h4 className={`text-4xl font-extrabold tracking-tight mb-5 relative z-10 pointer-events-none drop-shadow-md ${c.textPrimary}`}>{t[l].tracker_title}</h4>
+              <h4 className={`text-4xl font-extrabold tracking-tight mb-2 relative z-10 pointer-events-none drop-shadow-md ${c.textPrimary}`}>{t[l].tracker_title}</h4>
+              <p className={`text-sm font-medium mb-5 relative z-10 pointer-events-none drop-shadow-md ${c.textSecondary}`}>{t[l].tracker_desc}</p>
               
               <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
                 {/* Leaflet Map Integration */}
