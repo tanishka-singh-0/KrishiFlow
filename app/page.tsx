@@ -529,7 +529,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* LIVE CARBON FOOTPRINT TRACKER */}
+            {/* LIVE CARBON FOOTPRINT TRACKER - HIDDEN */}
+            {false && (
             <div className={`p-8 md:p-10 rounded-[2rem] border group/eco transition-all duration-500 ${c.ecoCard}`}>
               <div className="flex justify-between items-start mb-8">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/eco:scale-110 group-hover/eco:rotate-12 ${c.iconBg}`}>🌿</div>
@@ -569,9 +570,9 @@ export default function Home() {
                 <p className={`text-xs font-semibold tracking-wide ${c.accentEmerald}`}>{t[l].eco_tagline}</p>
               </div>
             </div>
+            )}
 
-            {/* BLOCKCHAIN TRACEABILITY (Anti-Black Market) - HIDDEN TO KEEP PROTOTYPE SIMPLE */}
-            {false && (
+            {/* BLOCKCHAIN TRACEABILITY (Anti-Black Market) */}
             <div className={`p-8 md:p-10 rounded-[2rem] border group/chain transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
               <div className="flex justify-between items-start mb-6">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/chain:scale-110 ${c.iconBg}`}>🛡️</div>
@@ -614,7 +615,6 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            )}
 
             {/* LOGISTICS AI ENGINE */}
             <div className={`p-8 md:p-10 rounded-[2rem] border group/engine transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
@@ -823,6 +823,8 @@ export default function Home() {
                 {t[l].pool_btn}
               </button>
             </div>
+              </>
+            )}
 
             {/* Predictive Analytics Chart Card */}
             <div className={`p-8 rounded-[2rem] border group/chart transition-all duration-500 ${c.chartCard}`}>
@@ -857,7 +859,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Government Portal Link */}
+            {/* Government Portal Link - HIDDEN */}
+            {false && (
             <div className={`p-8 rounded-[2rem] border group/link transition-all duration-500 ${c.portalCard}`}>
               <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border mb-6 transition-transform duration-300 group-hover/link:scale-110 group-hover/link:-rotate-12 ${c.iconBg}`}>🏛️</div>
               <h4 className={`text-xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>{t[l].etoken_h}</h4>
@@ -871,7 +874,6 @@ export default function Home() {
                 <span>{t[l].btn_portal}</span>
               </a>
             </div>
-              </>
             )}
 
           </div>
