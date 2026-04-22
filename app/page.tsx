@@ -916,9 +916,9 @@ export default function Home() {
         <div className={`mt-auto p-6 rounded-3xl flex flex-wrap items-center justify-center gap-4 md:justify-around font-semibold text-[11px] tracking-widest uppercase text-center border transition-colors duration-300 ${c.footer}`}>
           <span className={`transition-colors cursor-pointer hover:opacity-80 ${c.accentEmerald}`}>{t[l].footer1}</span>
           <span className="hidden md:inline opacity-30">●</span>
-          <span className={c.textSecondary}>{t[l].footer2}</span>
+          <span className={`transition-colors cursor-pointer hover:opacity-80 ${c.accentEmerald}`}>{t[l].footer2}</span>
           <span className="hidden md:inline opacity-30">●</span>
-          <span className="transition-colors cursor-pointer hover:opacity-80">{t[l].footer3}</span>
+          <span className={`transition-colors cursor-pointer hover:opacity-80 ${c.accentEmerald}`}>{t[l].footer3}</span>
         </div>
       </div>
     </main>
