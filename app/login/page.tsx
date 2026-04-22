@@ -104,6 +104,7 @@ export default function LoginPage() {
     if (otp.join("").length < 4) return;
     setLoading(true);
     setTimeout(() => {
+      localStorage.setItem('krishiflow_auth', 'true');
       router.push("/");
     }, 1500);
   };

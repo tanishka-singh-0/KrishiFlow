@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
 const TrackerMap = dynamic(() => import("@/components/TrackerMap"), {
   ssr: false,
@@ -167,6 +168,14 @@ const themeClasses = {
 };
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!localStorage.getItem('krishiflow_auth')) {
+      router.push('/login');
+    }
+  }, [router]);
+
   const [l, setL] = useState("hinglish");
   const [currentTheme, setCurrentTheme] = useState<Theme>('light');
   
@@ -444,6 +453,16 @@ export default function Home() {
                 </button>
               ))}
             </div>
+            
+            <button 
+              onClick={() => {
+                localStorage.removeItem('krishiflow_auth');
+                router.push('/login');
+              }}
+              className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all duration-300 border hover:bg-red-500 hover:text-white hover:border-red-500 ${c.tabInActive}`}
+            >
+              Logout
+            </button>
           </div>
         </header>
 
