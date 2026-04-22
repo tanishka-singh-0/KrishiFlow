@@ -489,9 +489,14 @@ export default function Home() {
           </div>
           
           <div className="flex flex-col-reverse items-end md:flex-row md:items-center gap-4 md:gap-4">
-            <div className={`hidden lg:block px-4 py-1.5 rounded-full font-bold text-[10px] tracking-wider uppercase border shadow-sm transition-all cursor-default ${c.tagBg}`}>
-              {t[l].nav_title}
-            </div>
+            <a 
+              href="https://evikas.mpkrishi.mp.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-full font-bold text-[10px] tracking-wider uppercase border shadow-sm transition-all hover:scale-105 active:scale-95 ${c.tagBg} hover:bg-emerald-500 hover:text-white hover:border-emerald-500 dark:hover:bg-emerald-600 dark:hover:text-white`}
+            >
+              🏛️ {t[l].etoken_h}
+            </a>
             
             {/* Theme Switcher Tabs */}
             <div className={`rounded-full p-1 inline-flex items-center transition-all ${c.tabContainer}`}>
