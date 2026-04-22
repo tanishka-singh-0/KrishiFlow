@@ -195,7 +195,7 @@ export default function Home() {
   const t: any = {
     english: {
       nav_title: "SMART FERTILIZER LOGISTICS",
-      hackathon: "Rising Rookies Hackathon 2026",
+      hackathon: "Smart Fertilizer Supply Chain",
       assistant_tag: "Supply Chain AI",
       assistant_h2: "Logistics Assistant",
       assistant_p: "Query live truck routes, warehouse inventory, or delivery ETAs",
@@ -227,7 +227,7 @@ export default function Home() {
     },
     hindi: {
       nav_title: "स्मार्ट फर्टिलाइजर लॉजिस्टिक्स",
-      hackathon: "राइजिंग रूकीज़ हैकथॉन 2026",
+      hackathon: "स्मार्ट फर्टिलाइजर सप्लाई चेन",
       assistant_tag: "सप्लाई चेन AI",
       assistant_h2: "लॉजिस्टिक्स असिस्टेंट",
       assistant_p: "ट्रक का रूट, गोदाम का स्टॉक या डिलीवरी ETA पूछें",
@@ -259,7 +259,7 @@ export default function Home() {
     },
     hinglish: {
       nav_title: "SMART FERTILIZER LOGISTICS",
-      hackathon: "Rising Rookies Hackathon 2026",
+      hackathon: "Smart Fertilizer Supply Chain",
       assistant_tag: "Supply Chain AI",
       assistant_h2: "Logistics Assistant",
       assistant_p: "Truck routes, warehouse stock, ya delivery ETA ke baare mein puchiye",
