@@ -5,8 +5,9 @@ export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
-    // API Key setup
-    const genAI = new GoogleGenerativeAI("AIzaSyC3iR2yLiAGdXXuQlGQEQk-dnd33t_oOt4");
+    // API Key setup (Use Environment Variable in Vercel to prevent Google from revoking public keys)
+    const apiKey = process.env.GEMINI_API_KEY || "AIzaSyC3iR2yLiAGdXXuQlGQEQk-dnd33t_oOt4";
+    const genAI = new GoogleGenerativeAI(apiKey);
 
     // Latest Model
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
