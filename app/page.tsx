@@ -616,6 +616,46 @@ export default function Home() {
               </div>
             </div>
 
+
+          {/* Sidebar Modules (Right Column) */}
+          <div className="lg:col-span-5 space-y-8">
+            
+            {/* AI Insights Panel */}
+            {(trackingStatus === 'alerting' || trackingStatus === 'rerouted') && (
+              <div className={`p-6 rounded-[2rem] border relative transition-all duration-500 animate-in fade-in slide-in-from-top-4 hover:-translate-y-1 ${c.alertCard}`}>
+                <div className="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 flex items-center justify-center rounded-full text-xl shadow-lg shadow-red-500/30 animate-pulse">🚨</div>
+                <h4 className={`font-bold mb-2 flex items-center gap-2 text-xs tracking-widest uppercase ${c.accentRed}`}>
+                  <span>🧠</span> AI Supply Chain Insight
+                </h4>
+                {isInsightLoading ? (
+                  <p className={`font-medium text-sm animate-pulse ${c.accentRed}`}>Analyzing transit data...</p>
+                ) : (
+                  <p className={`font-semibold text-sm leading-relaxed ${c.alertText}`}>{insight}</p>
+                )}
+              </div>
+            )}
+
+            {/* Live Delivery Leaflet Map */}
+            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
+              <h4 className={`font-bold mb-5 uppercase tracking-widest text-center text-xs transition-colors ${trackingStatus === 'normal' ? c.textSecondary : c.accentRed}`}>{t[l].tracker_title}</h4>
+              
+              <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
+                {/* Leaflet Map Integration */}
+                <div className="absolute inset-0 z-0">
+                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
+                </div>
+              </div>
+              
+              <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+                <span className={`transition-colors px-3 py-1.5 rounded-full ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
+                  {progress}% Completed
+                </span>
+                <span className={`${c.mapStatusPulse} animate-pulse`}>
+                  {trackingStatus === 'normal' ? 'IN TRANSIT TO WAREHOUSE A' : trackingStatus === 'alerting' ? 'DETECTING SHORTAGE...' : 'REROUTED TO WAREHOUSE B'}
+                </span>
+              </div>
+            </div>
+
             {/* LOGISTICS AI ENGINE */}
             <div className={`p-8 md:p-10 rounded-[2rem] border group/engine transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
               <div className="flex justify-between items-start mb-6">
@@ -732,46 +772,6 @@ export default function Home() {
             </div>
 
           </div>
-
-          {/* Sidebar Modules (Right Column) */}
-          <div className="lg:col-span-5 space-y-8">
-            
-            {/* AI Insights Panel */}
-            {(trackingStatus === 'alerting' || trackingStatus === 'rerouted') && (
-              <div className={`p-6 rounded-[2rem] border relative transition-all duration-500 animate-in fade-in slide-in-from-top-4 hover:-translate-y-1 ${c.alertCard}`}>
-                <div className="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 flex items-center justify-center rounded-full text-xl shadow-lg shadow-red-500/30 animate-pulse">🚨</div>
-                <h4 className={`font-bold mb-2 flex items-center gap-2 text-xs tracking-widest uppercase ${c.accentRed}`}>
-                  <span>🧠</span> AI Supply Chain Insight
-                </h4>
-                {isInsightLoading ? (
-                  <p className={`font-medium text-sm animate-pulse ${c.accentRed}`}>Analyzing transit data...</p>
-                ) : (
-                  <p className={`font-semibold text-sm leading-relaxed ${c.alertText}`}>{insight}</p>
-                )}
-              </div>
-            )}
-
-            {/* Live Delivery Leaflet Map */}
-            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map ${c.card}`}>
-              <h4 className={`font-bold mb-5 uppercase tracking-widest text-center text-xs transition-colors ${trackingStatus === 'normal' ? c.textSecondary : c.accentRed}`}>{t[l].tracker_title}</h4>
-              
-              <div className={`flex-1 w-full rounded-[1.5rem] overflow-hidden relative transition-all duration-500 ring-1 shadow-inner ${trackingStatus === 'normal' ? c.mapRing : 'ring-red-300 dark:ring-red-900'}`}>
-                {/* Leaflet Map Integration */}
-                <div className="absolute inset-0 z-0">
-                  <TrackerMap progress={progress} status={trackingStatus} theme={currentTheme} />
-                </div>
-              </div>
-              
-              <div className="mt-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-                <span className={`transition-colors px-3 py-1.5 rounded-full ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
-                  {progress}% Completed
-                </span>
-                <span className={`${c.mapStatusPulse} animate-pulse`}>
-                  {trackingStatus === 'normal' ? 'IN TRANSIT TO WAREHOUSE A' : trackingStatus === 'alerting' ? 'DETECTING SHORTAGE...' : 'REROUTED TO WAREHOUSE B'}
-                </span>
-              </div>
-            </div>
-
             {/* Extra Cards - HIDDEN TO KEEP PROTOTYPE SIMPLE */}
             {false && (
               <>
