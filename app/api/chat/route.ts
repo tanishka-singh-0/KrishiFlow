@@ -6,12 +6,17 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     // API Key setup (Use Environment Variable in Vercel to prevent Google from revoking public keys)
-    const apiKey = process.env.GEMINI_API_KEY || "AIzaSyC3iR2yLiAGdXXuQlGQEQk-dnd33t_oOt4";
+    const apiKey = process.env.GEMINI_API_KEY;
+    
+    if (!apiKey) {
+      throw new Error("GEMINI_API_KEY is not defined in environment variables.");
+    }
+    
     const genAI = new GoogleGenerativeAI(apiKey);
 
     // Latest Model with Supply Chain System Instruction
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.5-flash",
+      model: "gemini-1.5-flash",
       systemInstruction: "You are KrishiFlow AI, an expert Supply Chain & Logistics Manager. You ONLY answer questions related to fertilizer logistics, warehouse inventory, truck routing, tracking ETAs, predictive demand, and supply chain optimization. Keep answers short, professional, and directly related to the user's prompt. Do NOT answer general farming questions."
     });
 
