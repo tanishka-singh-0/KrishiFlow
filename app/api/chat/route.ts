@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     // Latest Model with Supply Chain System Instruction
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
+      model: "gemini-flash-latest",
       systemInstruction: "You are KrishiFlow AI, an expert Supply Chain & Logistics Manager. You ONLY answer questions related to fertilizer logistics, warehouse inventory, truck routing, tracking ETAs, predictive demand, and supply chain optimization. Keep answers short, professional, and directly related to the user's prompt. Do NOT answer general farming questions."
     });
 
