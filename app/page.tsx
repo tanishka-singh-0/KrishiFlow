@@ -609,7 +609,7 @@ export default function Home() {
             </div>
 
             {/* Live Delivery Leaflet Map */}
-            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[500px] flex flex-col transition-all duration-500 group/map hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
+            <div className={`p-8 rounded-[2rem] border relative overflow-hidden w-full h-[650px] flex flex-col transition-all duration-500 group/map hover:shadow-xl hover:-translate-y-1 ${c.card}`}>
               <div className="flex justify-between items-start mb-6 relative z-10 pointer-events-none">
                 <div className={`text-4xl w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover/map:scale-110 bg-white/80 dark:bg-black/80 backdrop-blur-md ${c.iconBg}`}>🗺️</div>
                 <div className={`px-3 py-1.5 rounded-full font-bold text-[10px] uppercase border shadow-sm transition-colors bg-white/80 dark:bg-black/80 backdrop-blur-md ${trackingStatus === 'normal' ? c.tagBg : 'bg-red-50 text-red-600 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'}`}>
