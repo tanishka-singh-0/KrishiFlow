@@ -1008,7 +1008,7 @@ export default function Home() {
               <h4 className={`text-xl font-extrabold tracking-tight mb-2 ${c.textPrimary}`}>{t[l].etoken_h}</h4>
               <p className={`text-sm font-medium leading-relaxed mb-8 ${c.textSecondary}`}>{t[l].etoken_p}</p>
               <a 
-                href="https://evikas.mpkrishi.mp.gov.in/" 
+                href=" https://evikas.mpkrishi.mp.gov.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`inline-flex items-center justify-center w-full gap-2 px-6 py-4 rounded-2xl font-bold uppercase text-xs tracking-wider transition-all duration-300 active:scale-95 ${c.portalBtn}`}
